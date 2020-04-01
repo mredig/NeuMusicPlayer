@@ -14,6 +14,7 @@
 		466D5F90243264BB00497D10 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 466D5F8F243264BB00497D10 /* Preview Assets.xcassets */; };
 		466D5F93243264BB00497D10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466D5F91243264BB00497D10 /* LaunchScreen.storyboard */; };
 		466D5F9B24329FC500497D10 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466D5F9A24329FC500497D10 /* Colors.swift */; };
+		46FF557424354AB400668455 /* UIImage+SymbolConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FF557324354AB400668455 /* UIImage+SymbolConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		466D5F92243264BB00497D10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		466D5F94243264BB00497D10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		466D5F9A24329FC500497D10 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		46FF557324354AB400668455 /* UIImage+SymbolConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SymbolConfig.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		466D5F85243264BA00497D10 /* Neu Music Player */ = {
 			isa = PBXGroup;
 			children = (
+				46FF557324354AB400668455 /* UIImage+SymbolConfig.swift */,
 				466D5F86243264BA00497D10 /* AppDelegate.swift */,
 				466D5F88243264BA00497D10 /* SceneDelegate.swift */,
 				466D5F8A243264BA00497D10 /* ContentView.swift */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46FF557424354AB400668455 /* UIImage+SymbolConfig.swift in Sources */,
 				466D5F87243264BA00497D10 /* AppDelegate.swift in Sources */,
 				466D5F9B24329FC500497D10 /* Colors.swift in Sources */,
 				466D5F89243264BA00497D10 /* SceneDelegate.swift in Sources */,

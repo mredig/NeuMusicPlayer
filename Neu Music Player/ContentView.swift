@@ -31,7 +31,7 @@ struct ContentView: View {
                 // This will hold every view on top of the background gradient
                 VStack {
                     HStack {
-                        BasicButton(imageName: "arrow.left")
+                        BasicButton(imageName: "arrow.left", size: 50, symbolConfig: .navButtonConfig)
                             .padding(.leading, 30)
                         Spacer()
                         Text("PLAYING NOW")
@@ -40,7 +40,7 @@ struct ContentView: View {
                         
                         
                         Spacer()
-                        BasicButton(imageName: "line.horizontal.3")
+                        BasicButton(imageName: "line.horizontal.3", size: 50, symbolConfig: .navButtonConfig)
                             .padding(.trailing, 40)
                     }
                     
@@ -62,8 +62,15 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    PlayPauseButton()
-                        .frame(width: 75, height: 75)
+                    HStack {
+                        Spacer()
+                        BasicButton(imageName: "backward.fill", size: 70, symbolConfig: .playbackButtonConfig)
+                        PlayPauseButton()
+                            .frame(width: 75, height: 75)
+                            .padding(.horizontal, 14)
+                        BasicButton(imageName: "forward.fill", size: 70, symbolConfig: .playbackButtonConfig)
+                        Spacer()
+                    }
                 }
             }
         }
@@ -102,6 +109,10 @@ struct PlayPauseButton: View {
                     .font(Font.system(.callout).weight(.black))
             }
         }
+        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 5, y: 5)
+        .shadow(color: Color.white.opacity(0.1), radius: 10, x: -5, y: -5)
+                   
+        
     }
     
     func colorsForIsPlaying() -> [Color] {
@@ -116,6 +127,8 @@ struct PlayPauseButton: View {
 struct BasicButton: View {
     
     var imageName: String
+    var size: CGFloat
+    var symbolConfig: UIImage.SymbolConfiguration
     
     var body: some View {
         Button(action: {
@@ -126,15 +139,15 @@ struct BasicButton: View {
                     .fill(LinearGradient(gradient: Gradient(colors: [.bgGradientTop, .bgGradientBottom]),
                                          startPoint: .bottomTrailing,
                                          endPoint: .topLeading))
-                    .frame(width: 50, height: 50)
+                    .frame(width: size, height: size)
                 
-                Image(systemName: imageName)
-                    .resizable()
+                Image(uiImage: UIImage(systemName: imageName, withConfiguration: symbolConfig)!)
+//                    .resizable()
                     .font(Font.system(.headline).weight(.bold))
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(.buttonColor)
-                    .frame(width: 20, height: 20)
-                    .padding(12)
+                    .frame(width: size * 0.95, height: size * 0.95)
+//                    .padding(12)
                     .background(
                         LinearGradient(gradient: Gradient(colors: [.bgGradientTop, .bgGradientBottom]),
                                        startPoint: .topLeading,
@@ -180,18 +193,25 @@ struct PlayerProgressView: View {
     
     @ObservedObject var song: Song
     
+    var dateFormatter: DateFormatter = {
+          let formatter = DateFormatter()
+          formatter.dateFormat = "m:ss"
+          formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        
+          return formatter
+    }()
+    
     var trackRadius: CGFloat = 4
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             HStack {
-                Text("\(Int(self.song.currentTime))")
+                Text(formattedTimeFor(timeInterval: song.currentTime))
                 Spacer()
-                Text("\(Int(self.song.duration))")
+                Text(formattedTimeFor(timeInterval: song.duration))
             }
             .foregroundColor(.buttonColor)
             .font(Font.system(.caption))
-            
             
             ZStack {
                 RoundedRectangle(cornerRadius: trackRadius)
@@ -211,7 +231,8 @@ struct PlayerProgressView: View {
                                                endPoint: .trailing)
                         )
                             .frame(width: geometry.size.width * self.percentageCompleteForSong(), height: self.trackRadius * 2)
-                        Spacer()
+                        Spacer(minLength: 0)
+                        
                     }
                 }
                 
@@ -234,13 +255,18 @@ struct PlayerProgressView: View {
                                         self.song.currentTime = self.time(for: value.location.x, in: geometry.size.width)
                                     })
                         )
-                        Spacer()
+                        Spacer(minLength: 0)
                     }
                 }
-                
             }
+            .frame(height: 40)
         }
         .padding(.horizontal, 30)
+    }
+    
+    func formattedTimeFor(timeInterval: TimeInterval) -> String {
+        let date = Date(timeIntervalSinceReferenceDate: timeInterval)
+        return dateFormatter.string(from: date)
     }
     
     func time(for location: CGFloat, in width: CGFloat) -> TimeInterval {
