@@ -12,7 +12,7 @@ class Song: ObservableObject {
     let title: String = "Low Life"
     let artist: String = "Future ft. The Weeknd"
     let duration: TimeInterval = 120
-    var currentTime: TimeInterval = 50
+    @Published var currentTime: TimeInterval = 50
     let coverArt: UIImage = UIImage(named: "BurningFlower")!
 }
 
@@ -215,19 +215,49 @@ struct PlayerProgressView: View {
                     }
                 }
                 
-                Circle()
-                    .fill(
-                RadialGradient(gradient: Gradient(stops: [
-                    Gradient.Stop(color: .trackYellow, location: 0.0),
-                    Gradient.Stop(color: .bgGradientBottom, location: 0.00001),
-                    Gradient.Stop(color: .bgGradientTop, location: 1),
-                ]), center: .center, startRadius: 6, endRadius: 40)
-                )
-                    .frame(width: 40, height: 40)
+                GeometryReader { geometry in
+                    
+                    HStack {
+                        Circle()
+                            .fill(
+                                RadialGradient(gradient: Gradient(stops: [
+                                    Gradient.Stop(color: .trackYellow, location: 0.0),
+                                    Gradient.Stop(color: .bgGradientBottom, location: 0.00001),
+                                    Gradient.Stop(color: .bgGradientTop, location: 1),
+                                ]), center: .center, startRadius: 6, endRadius: 40)
+                        )
+                            .frame(width: 40, height: 40)
+                            .padding(.leading, geometry.size.width * self.percentageCompleteForSong() - 20)
+                            .gesture(
+                                DragGesture()
+                                    .onChanged({ (value) in
+                                        self.song.currentTime = self.time(for: value.location.x, in: geometry.size.width)
+                                    })
+                        )
+                        Spacer()
+                    }
+                }
                 
             }
         }
         .padding(.horizontal, 30)
+    }
+    
+    func time(for location: CGFloat, in width: CGFloat) -> TimeInterval {
+        
+        let percentage = location / width
+        
+        let time = song.duration * TimeInterval(percentage)
+        
+        if time < 0 {
+            return 0
+        } else if time > song.duration {
+            return song.duration
+        }
+        
+        return time
+        
+        
     }
     
     func percentageCompleteForSong() -> CGFloat {
