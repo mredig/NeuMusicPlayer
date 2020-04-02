@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331CE1862436A5AC005F6390 /* SearchResultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331CE1852436A5AC005F6390 /* SearchResultRow.swift */; };
 		3350D13824369C6F006C6C9C /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3350D13724369C6F006C6C9C /* PlayButton.swift */; };
 		3350D13A24369DE6006C6C9C /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3350D13924369DE6006C6C9C /* BasicButton.swift */; };
 		3350D13C24369E37006C6C9C /* CoverArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3350D13B24369E37006C6C9C /* CoverArt.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		331CE1852436A5AC005F6390 /* SearchResultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRow.swift; sourceTree = "<group>"; };
 		3350D13724369C6F006C6C9C /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		3350D13924369DE6006C6C9C /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
 		3350D13B24369E37006C6C9C /* CoverArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArt.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				3350D13D24369E54006C6C9C /* PlayerProgressView.swift */,
 				3350D13724369C6F006C6C9C /* PlayButton.swift */,
 				3350D13924369DE6006C6C9C /* BasicButton.swift */,
+				331CE1852436A5AC005F6390 /* SearchResultRow.swift */,
 				3350D13B24369E37006C6C9C /* CoverArt.swift */,
 				466D5F8C243264BB00497D10 /* Assets.xcassets */,
 				466D5F9A24329FC500497D10 /* Colors.swift */,
@@ -176,6 +179,7 @@
 				466D5F89243264BA00497D10 /* SceneDelegate.swift in Sources */,
 				464D59BF24368B5800277612 /* SearchView.swift in Sources */,
 				3350D13824369C6F006C6C9C /* PlayButton.swift in Sources */,
+				331CE1862436A5AC005F6390 /* SearchResultRow.swift in Sources */,
 				466D5F8B243264BA00497D10 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,8 +318,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Neu Music Player/Preview Content\"";
+				DEVELOPMENT_TEAM = L5UZAT7KA9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Neu Music Player/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -333,8 +339,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Neu Music Player/Preview Content\"";
+				DEVELOPMENT_TEAM = L5UZAT7KA9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Neu Music Player/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

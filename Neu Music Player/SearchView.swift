@@ -43,8 +43,11 @@ struct SearchView: View {
 		Artist(name: "The Beatles")
 	]
 
+	@State var selectedResult: SearchResult?
+
 	init() {
 		UITableView.appearance().backgroundColor = .clear
+		UITableView.appearance().showsVerticalScrollIndicator = false
 		UITableViewCell.appearance().backgroundColor = .clear
 	}
 
@@ -55,29 +58,7 @@ struct SearchView: View {
 				.edgesIgnoringSafeArea(.all)
 
 			List(searchResults, id: \.id) { (searchResult) in
-				Button(action: {}) {
-					HStack {
-						VStack(alignment: .leading) {
-							Text(searchResult.mainText)
-								.foregroundColor(.buttonColor)
-								.font(Font.system(.headline).weight(.medium))
-
-							if (searchResult.subText != nil) {
-								Text(searchResult.subText!)
-									.foregroundColor(.buttonColor)
-									.font(Font.system(.caption))
-							}
-						}
-						.padding(.leading, 18)
-
-						Spacer()
-
-						BasicButton(imageName: "play.fill", size: 40, symbolConfig: .searchButtonConfig)
-							.padding(.trailing, 12)
-					}
-				}
-				.buttonStyle(SearchRowStyle())
-				.frame(height: 60)
+				SearchResultRow(searchResult: searchResult, selectedResult: self.$selectedResult)
 			}
 		}
 	}
