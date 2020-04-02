@@ -10,6 +10,7 @@ import SwiftUI
 
 extension Color {
 	static let bgGradientTop = Color("BackgroundGradientTop")
+	static let bgGradientMedium = Color("BackgroundGradientMedium")
 	static let bgGradientBottom = Color("BackgroundGradientBottom")
 	static let buttonColor = Color("Button")
 	static let pauseDarkOrange = Color("PauseDarkOrange")

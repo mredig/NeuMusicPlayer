@@ -77,7 +77,7 @@ struct SearchView: View {
 					}
 				}
 				.buttonStyle(SearchRowStyle())
-				.frame(height: 55)
+				.frame(height: 60)
 			}
 		}
 	}
@@ -94,8 +94,23 @@ struct SearchRowStyle: ButtonStyle {
 	func makeBody(configuration: Configuration) -> some View {
 		ZStack {
 			RoundedRectangle(cornerRadius: 20, style: .continuous)
-				.fill(configuration.isPressed ? Color.bgGradientBottom : Color.clear)
+				.fill(fillForBackground(for: configuration.isPressed))
+				.shadow(color: Color.white.opacity(0.1), radius: 1, x: 0, y: -1)
+				.shadow(color: Color.black.opacity(0.35), radius: 1, x: 0, y: 1)
 			configuration.label
+		}
+	}
+
+	func fillForBackground(for isPressed: Bool) -> some ShapeStyle {
+		if isPressed {
+			return LinearGradient(gradient:
+				Gradient(colors: [.bgGradientMedium, Color.bgGradientBottom]),
+								  startPoint: .bottom,
+								  endPoint: .top)
+		} else {
+			return LinearGradient(gradient: Gradient(colors: [.clear]),
+								  startPoint: .bottom,
+								  endPoint: .top)
 		}
 	}
 }
