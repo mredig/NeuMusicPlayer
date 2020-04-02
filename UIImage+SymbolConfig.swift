@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIImage.SymbolConfiguration {
-    static var navButtonConfig = UIImage.SymbolConfiguration(pointSize: 12, weight: .bold)
-    static var playbackButtonConfig = UIImage.SymbolConfiguration(pointSize: 16, weight: .bold)
-    static var searchButtonConfig = UIImage.SymbolConfiguration(pointSize: 8, weight: .bold)
+	static var navButtonConfig = UIImage.SymbolConfiguration(pointSize: 12, weight: .bold)
+	static var playbackButtonConfig = UIImage.SymbolConfiguration(pointSize: 16, weight: .bold)
+	static var searchButtonConfig = UIImage.SymbolConfiguration(pointSize: 8, weight: .bold)
 }
