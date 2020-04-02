@@ -11,9 +11,10 @@ import SwiftUI
 protocol SearchResult {
 	var mainText: String { get }
 	var subText: String? { get }
+	var id: UUID { get }
 }
 
-struct Artist: SearchResult, Identifiable {
+struct Artist: SearchResult {
 	var name: String
 	var id = UUID()
 
@@ -27,7 +28,7 @@ struct Artist: SearchResult, Identifiable {
 }
 
 struct SearchView: View {
-	var searchResults: [Artist] = [
+	var searchResults: [SearchResult] = [
 		Artist(name: "Weezer"),
 		Artist(name: "The Beatles"),
 		Artist(name: "Weezer"),
@@ -53,7 +54,7 @@ struct SearchView: View {
 				Gradient(colors: [.bgGradientTop, .bgGradientBottom]), startPoint: .top, endPoint: .bottom)
 				.edgesIgnoringSafeArea(.all)
 
-			List(searchResults) { (searchResult) in
+			List(searchResults, id: \.id) { (searchResult) in
 				Button(action: {}) {
 					HStack {
 						VStack(alignment: .leading) {
@@ -67,9 +68,12 @@ struct SearchView: View {
 									.font(Font.system(.caption))
 							}
 						}
+						.padding(.leading, 18)
+
 						Spacer()
 
 						BasicButton(imageName: "play.fill", size: 40, symbolConfig: .searchButtonConfig)
+							.padding(.trailing, 12)
 					}
 				}
 				.buttonStyle(SearchRowStyle())
