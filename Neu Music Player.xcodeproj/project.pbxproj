@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3350D13824369C6F006C6C9C /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3350D13724369C6F006C6C9C /* PlayButton.swift */; };
+		3350D13A24369DE6006C6C9C /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3350D13924369DE6006C6C9C /* BasicButton.swift */; };
+		3350D13C24369E37006C6C9C /* CoverArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3350D13B24369E37006C6C9C /* CoverArt.swift */; };
+		3350D13E24369E54006C6C9C /* PlayerProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3350D13D24369E54006C6C9C /* PlayerProgressView.swift */; };
 		464D59BF24368B5800277612 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D59BE24368B5800277612 /* SearchView.swift */; };
 		466D5F87243264BA00497D10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466D5F86243264BA00497D10 /* AppDelegate.swift */; };
 		466D5F89243264BA00497D10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466D5F88243264BA00497D10 /* SceneDelegate.swift */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3350D13724369C6F006C6C9C /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		3350D13924369DE6006C6C9C /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
+		3350D13B24369E37006C6C9C /* CoverArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArt.swift; sourceTree = "<group>"; };
+		3350D13D24369E54006C6C9C /* PlayerProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProgressView.swift; sourceTree = "<group>"; };
 		464D59BE24368B5800277612 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		466D5F83243264BA00497D10 /* Neu Music Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Neu Music Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466D5F86243264BA00497D10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +75,10 @@
 				466D5F86243264BA00497D10 /* AppDelegate.swift */,
 				466D5F88243264BA00497D10 /* SceneDelegate.swift */,
 				466D5F8A243264BA00497D10 /* ContentView.swift */,
+				3350D13D24369E54006C6C9C /* PlayerProgressView.swift */,
+				3350D13724369C6F006C6C9C /* PlayButton.swift */,
+				3350D13924369DE6006C6C9C /* BasicButton.swift */,
+				3350D13B24369E37006C6C9C /* CoverArt.swift */,
 				466D5F8C243264BB00497D10 /* Assets.xcassets */,
 				466D5F9A24329FC500497D10 /* Colors.swift */,
 				466D5F91243264BB00497D10 /* LaunchScreen.storyboard */,
@@ -156,10 +168,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				46FF557424354AB400668455 /* UIImage+SymbolConfig.swift in Sources */,
+				3350D13A24369DE6006C6C9C /* BasicButton.swift in Sources */,
 				466D5F87243264BA00497D10 /* AppDelegate.swift in Sources */,
 				466D5F9B24329FC500497D10 /* Colors.swift in Sources */,
+				3350D13C24369E37006C6C9C /* CoverArt.swift in Sources */,
+				3350D13E24369E54006C6C9C /* PlayerProgressView.swift in Sources */,
 				466D5F89243264BA00497D10 /* SceneDelegate.swift in Sources */,
 				464D59BF24368B5800277612 /* SearchView.swift in Sources */,
+				3350D13824369C6F006C6C9C /* PlayButton.swift in Sources */,
 				466D5F8B243264BA00497D10 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
