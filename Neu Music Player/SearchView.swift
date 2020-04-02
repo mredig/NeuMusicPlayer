@@ -8,12 +8,12 @@
 
 import SwiftUI
 
-protocol SearchResult: Identifiable {
+protocol SearchResult {
     var mainText: String { get }
     var subText: String? { get }
 }
 
-struct Artist: Identifiable {
+struct Artist: SearchResult, Identifiable {
     var name: String
     var id = UUID()
     
@@ -41,6 +41,10 @@ struct SearchView: View {
         Artist(name: "The Beatles")
     ]
     
+    init() {
+        UITableView.appearance().backgroundColor = .clear
+        UITableViewCell.appearance().backgroundColor = .clear
+    }
     
     var body: some View {
         ZStack {
@@ -50,11 +54,19 @@ struct SearchView: View {
             
             List(searchResults) { (searchResult) in
                 
-                Text(searchResult.mainText)
-                
+                VStack {
+                    Text(searchResult.mainText)
+                        .foregroundColor(.buttonColor)
+                        .font(Font.system(.headline).weight(.semibold))
+                    
+                    if (searchResult.subText != nil) {
+                        Text(searchResult.subText!)
+                        .foregroundColor(.buttonColor)
+                        .font(Font.system(.headline).weight(.semibold))
+                    }
+                }
+                    
             }
-            
-            
         }
     }
 }
