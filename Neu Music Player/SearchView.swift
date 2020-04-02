@@ -20,8 +20,10 @@ struct Artist: SearchResult, Identifiable {
     var mainText: String {
         return name
     }
-
-    var subText: String? = nil
+    
+    var subText: String? {
+        return name
+    }
 }
 
 struct SearchView: View {
@@ -49,23 +51,32 @@ struct SearchView: View {
     var body: some View {
         ZStack {
             LinearGradient(gradient:
-            Gradient(colors: [.bgGradientTop, .bgGradientBottom]), startPoint: .top, endPoint: .bottom)
-            .edgesIgnoringSafeArea(.all)
+                Gradient(colors: [.bgGradientTop, .bgGradientBottom]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
             
             List(searchResults) { (searchResult) in
                 
-                VStack {
-                    Text(searchResult.mainText)
-                        .foregroundColor(.buttonColor)
-                        .font(Font.system(.headline).weight(.semibold))
-                    
-                    if (searchResult.subText != nil) {
-                        Text(searchResult.subText!)
-                        .foregroundColor(.buttonColor)
-                        .font(Font.system(.headline).weight(.semibold))
+                Button(action: {}) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(searchResult.mainText)
+                                .foregroundColor(.buttonColor)
+                                .font(Font.system(.headline).weight(.medium))
+                            
+                            if (searchResult.subText != nil) {
+                                Text(searchResult.subText!)
+                                    .foregroundColor(.buttonColor)
+                                    .font(Font.system(.caption))
+                            }
+                        }
+                        Spacer()
+                        
+                        BasicButton(imageName: "play.fill", size: 40, symbolConfig: .searchButtonConfig)
                     }
                 }
-                    
+                .buttonStyle(SearchRowStyle())
+
+                .frame(height: 55)
             }
         }
     }
@@ -74,5 +85,18 @@ struct SearchView: View {
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView()
+    }
+}
+
+
+struct SearchRowStyle: ButtonStyle {
+    
+    func makeBody(configuration: Configuration) -> some View {
+        ZStack {
+            
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .fill(configuration.isPressed ? Color.bgGradientBottom : Color.clear)
+            configuration.label
+        }
     }
 }
