@@ -39,12 +39,12 @@ struct SearchResultRow: View {
 					Spacer()
 
 					BasicButton(imageName: "play.fill", size: 40, symbolConfig: .searchButtonConfig)
-						.padding(.trailing, 12)
+						.padding(.trailing, 16)
 				}
 			}
 		}
 		.buttonStyle(SearchRowStyle())
-		.frame(height: 60)
+		.frame(height: 80)
 	}
 }
 

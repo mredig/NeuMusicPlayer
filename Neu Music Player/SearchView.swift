@@ -28,26 +28,17 @@ struct Artist: SearchResult {
 }
 
 struct SearchView: View {
-	var searchResults: [SearchResult] = [
-		Artist(name: "Weezer"),
-		Artist(name: "The Beatles"),
-		Artist(name: "Weezer"),
-		Artist(name: "The Beatles"),
-		Artist(name: "Weezer"),
-		Artist(name: "The Beatles"),
-		Artist(name: "Weezer"),
-		Artist(name: "The Beatles"),
-		Artist(name: "Weezer"),
-		Artist(name: "The Beatles"),
-		Artist(name: "Weezer"),
-		Artist(name: "The Beatles")
-	]
+	var searchResults: [SearchResult] = (0..<100).flatMap { _ in
+		[
+			Artist(name: "Weezer"),
+			Artist(name: "The Beatles"),
+		]
+	}
 
 	@State var selectedResult: SearchResult?
 
 	init() {
 		UITableView.appearance().backgroundColor = .clear
-		UITableView.appearance().showsVerticalScrollIndicator = false
 		UITableViewCell.appearance().backgroundColor = .clear
 	}
 
@@ -58,7 +49,7 @@ struct SearchView: View {
 				.edgesIgnoringSafeArea(.all)
 
 			List(searchResults, id: \.id) { (searchResult) in
-				SearchResultRow(searchResult: searchResult, selectedResult: self.$selectedResult)
+				SearchResultRow(searchResult: searchResult, selectedResult: self.$selectedResult).drawingGroup()
 			}
 		}
 	}

@@ -37,8 +37,8 @@ struct BasicButton: View {
 									   endPoint: .bottomTrailing))
 					.clipShape(Circle())
 			}
-			.shadow(color: Color.black.opacity(0.3), radius: 10, x: 5, y: 5)
-			.shadow(color: Color.white.opacity(0.1), radius: 10, x: -5, y: -5)
+			.shadow(color: Color.black.opacity(0.3), radius: 7.5, x: 5, y: 5)
+			.shadow(color: Color.white.opacity(0.1), radius: 7.5, x: -5, y: -5)
 
 		}
 	}
